@@ -2,14 +2,15 @@
 
 // TODO: Variable global
 // Asignación e inicialización de la variable presupuesto
-let presupuesto = 0;
+let presupuesto = 0; // Ej. 1 Inicialmente = 0
 console.log("Presupuesto inicial igual a " + presupuesto);
-let gastos = [];
-let idGasto = 0;
+
+let gastos = []; // Ej. 2 - Inicialmente contiene un array vacío
+let idGasto = 0; // Ej. 2 - Almacena el identificador actual de cada gasto. Inicialmente = 0
 
 // EJECUCIÓN DEL PROGRAMA
 
-// Llamada a las funciones de la práctica: Fundamentos de JavaScript I
+// Ej. 1 - Llamada a las funciones de la práctica: Fundamentos de JavaScript I
 actualizarPresupuesto(0);
 mostrarPresupuesto()
 
@@ -37,7 +38,7 @@ for (let gastoTipo of gasto.etiquetas){
 
 // FUNCIONES de la práctica: Fundamentos de JavaScript I
 
-// Función actualizarPresupuesto
+// Ej. 1 - Crear función actualizarPresupuesto
 function actualizarPresupuesto(numero) {
     if ((numero >= 0) && (!isNaN(numero))){
         presupuesto = numero
@@ -48,15 +49,15 @@ function actualizarPresupuesto(numero) {
     }
 }
 
-// Función mostrarPresupuesto
+// Ej. 1 - Crear función mostrarPresupuesto
 function mostrarPresupuesto() {
         return "Tu presupuesto actual es de " + presupuesto + " €";
 }
 
-// Función CrearGasto
+// Ej. 1 - Crear función constructora CrearGasto
 function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
-            // Propiedades del objeto crearGasto
+            // Ej.1 - Propiedades del objeto crearGasto: descripción y valor
 
             this.descripcion = descripcion;
             this.valor = (valor >=0) ? valor : 0;
@@ -69,16 +70,19 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
 
             // Métodos del objeto crearGasto
-            //1º ejercicio
+            // Ej. 1 - Métodos creados en el Ejercicio 1º
+            // Ej. 1 - Crear función mostrarGasto
             this.mostrarGasto = function(){
                 //console.log("Gasto correspondiente a " + this.descripcion + " con valor " + this.valor);
                 return "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + " €";
             }
 
+            // Ej. 1 - Crear función actualizarDescripcion
             this.actualizarDescripcion = function (nuevaDescripcion){
                 this.descripcion = nuevaDescripcion;
             }
 
+            // Ej. 1 - Crear función actualizarValor
             this.actualizarValor = function (nuevoValor){
                 if ((nuevoValor >= 0) && (!isNaN(nuevoValor))){
                     this.valor = nuevoValor;
@@ -87,12 +91,13 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
                 }
               }     
               
-            // 2º ejercicio
-
+            // Ej. 2 - Métodos creados en el Ejercicio 2º
+            // Ej. 2 - Crear función xx
             this.anyadirGasto = function(...lleganTags){
                     this.etiquetas.push(lleganTags);
             }
 
+            // Ej. 2 - Crear función xx
             this.borrarGasto = function(id){
 
             }
@@ -101,7 +106,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
         };
 
-// FUNCIONES de la práctica: Fundamentos de JavaScript II
+// Ej. 2 - FUNCIONES de la práctica: Fundamentos de JavaScript II
 
         function listarGastos(){
             return gastos;
