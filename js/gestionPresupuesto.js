@@ -11,27 +11,21 @@ let idGasto = 0; // Ej. 2 - Almacena el identificador actual de cada gasto. Inic
 // EJECUCIÓN DEL PROGRAMA
 
 // Ej. 1 - Llamada a las funciones de la práctica: Fundamentos de JavaScript I
-actualizarPresupuesto(0);
-mostrarPresupuesto()
+/* actualizarPresupuesto(0);
+mostrarPresupuesto() */
 
-// Se crea el objeto
-let gasto = new CrearGasto("Ejemplo de gasto 1", 20.33, "Oct 06 2021", "ordinario","extraordinario");
-
-// Ejecución de las funciones del objeto
-console.log(gasto.mostrarGasto());
-gasto.actualizarDescripcion("Gastos imprevistos");
-gasto.actualizarValor(100.58);
-console.log(gasto.mostrarGasto());
-gasto.actualizarDescripcion("Gasto erróneo");
-gasto.actualizarValor(-200);
-console.log(gasto.mostrarGasto());
-console.log(`La fecha es ${gasto.fecha}`);
-console.log(`Etiquetas que hay ${gasto.etiquetas.length}`)
-gasto.anyadirGasto("ordinario","extraordinario");
-for (let gastoTipo of gasto.etiquetas){
-    console.log(gastoTipo);
+// Ej. 2 - Llamada a las funciones de la práctica: Fundamentos de JavaScript II
+let gasto = new CrearGasto("Ejemplo de gasto 1", 20.33, "2023-10-11","ordinario","extraordinario","comunidad","luz","agua");
+console.log(`La fecha del gasto en timestamp es: ${gasto.fecha}`);
+let gastosVarios = "";
+for (let i = 0; i < gasto.etiquetas.length; i++){
+    gastosVarios += `-${gasto.etiquetas[i]}\n`;
 }
-// Llamada a las funciones de la práctica: Fundamentos de JavaScript II
+console.log(`Los gastos del ejercicio son:\n ${gastosVarios}`);
+
+
+
+
 
 
 // FUNCIONES
@@ -62,10 +56,11 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             this.descripcion = descripcion;
             this.valor = (valor >=0) ? valor : 0;
 
-            this.fecha = fecha;
-            //this.fecha = new Date();
-            this.fecha = (Date.parse(fecha)) ? new Date(fecha) : new Date;
-            this.etiquetas = [];
+
+            //this.fecha = (((Date.parse(fecha)).isNaN) == false) ? new Date(fecha) : new Date;
+            //this.fecha = (!isNaN(Date.parse(fecha))) ? new Date(fecha) : new Date();
+            this.fecha = (!isNaN(Date.parse(fecha))) ? new Date(fecha).getTime() : Date.now();
+            //this.etiquetas = [];
             this.etiquetas = (etiquetas.length > 0) ? etiquetas : [];
 
 
@@ -102,24 +97,32 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
             }
 
+            // Ej. 2 - Crear función xx
+            function mostrarGastoCompleto(){
+                console.log("mostrarGastoCompleto");
+            }
+
 
 
         };
 
-// Ej. 2 - FUNCIONES de la práctica: Fundamentos de JavaScript II
-
+// Ej. 2 - Funciones para añadir al final - FUNCIONES de la práctica: Fundamentos de JavaScript II
         function listarGastos(){
             return gastos;
         }
+
         function anyadirGasto(){
 
         }
+
         function borrarGasto(){
 
         } 
+
         function calcularTotalGastos(){
 
         }
+
         function calcularBalance(){
 
         }
