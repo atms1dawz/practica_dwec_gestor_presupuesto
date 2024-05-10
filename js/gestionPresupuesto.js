@@ -68,8 +68,8 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             // Ej. 1 - Métodos creados en el Ejercicio 1º
             // Ej. 1 - Crear función mostrarGasto
             this.mostrarGasto = function(){
-                //console.log("Gasto correspondiente a " + this.descripcion + " con valor " + this.valor);
-                return "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + " €";
+                //return "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + " €";
+                return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;
             }
 
             // Ej. 1 - Crear función actualizarDescripcion
