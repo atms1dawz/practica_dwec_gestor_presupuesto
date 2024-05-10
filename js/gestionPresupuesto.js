@@ -30,8 +30,10 @@ anyadirGasto(gasto1);
 console.log(`Después de añadir el gasto ${listarGastos()}`);
 console.log(`Después de añadir el gasto ${gastos.length}`);
 */
-
-
+anyadirGasto(gasto1); 
+console.log(`Después de añadir el gasto ${gastos.length}`);
+borrarGasto(1);
+console.log(`Después de borrar el gasto ${gastos.length}`);
 
 
 
@@ -114,24 +116,6 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             //Incrementar el valor de la variable global idGasto.
             //Añadir el objeto gasto pasado como parámetro a la variable global gastos. El gasto se debe añadir al final del array.
 
-           /* this.anyadirGasto = function(gasto){
-                this.id = idGasto;
-                idGasto++;
-                gastos.push(gasto);
-            }*/
-
-            // Ej. 2 - Crear función xx
-            this.borrarGasto = function(id){
-
-            }
-
-            // Ej. 2 - Crear función xx
-            function mostrarGastoCompleto(){
-                console.log("mostrarGastoCompleto");
-            }
-
-
-
         };
 
 // Ej. 2 - Funciones para añadir al final - FUNCIONES de la práctica: Fundamentos de JavaScript II
@@ -145,8 +129,16 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             gastos.push(gasto);
         }
 
-        function borrarGasto(){
-
+        function borrarGasto(id){
+             let elementoAborrar = indice => indice == id;
+             console.log(elementoAborrar)
+             let resultado = gastos.find(elementoAborrar)
+             console.log(resultado)
+             if (elementoAborrar){
+                gastos.splice(resultado)
+                console.log(gastos);
+                //console.log("Borra uno");
+            } //else { console.log("No borra nada " + resultado)}
         } 
 
         function calcularTotalGastos(){
