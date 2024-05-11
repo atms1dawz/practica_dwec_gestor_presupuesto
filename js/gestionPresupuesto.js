@@ -18,23 +18,40 @@ mostrarPresupuesto() */
 
 let gasto1 = new CrearGasto("Ejemplo de gasto 1", 20.33, "2023-10-11","ordinario","extraordinario","comunidad","luz","agua");
 console.log(`La fecha del gasto en timestamp es: ${gasto1.fecha}`);
-
+/*
 console.log(`Los gastos del ejercicio son:`);
 for (let gastosVariados of gasto1.etiquetas){
     console.log(`-${gastosVariados}`);
 }
-/*
-console.log(`Antes de añadir el gasto ${listarGastos()}`);
-console.log(`Antes de añadir el gasto ${gastos.length}`);
-anyadirGasto(gasto1); 
-console.log(`Después de añadir el gasto ${listarGastos()}`);
-console.log(`Después de añadir el gasto ${gastos.length}`);
 */
+/*
 anyadirGasto(gasto1); 
-console.log(`Después de añadir el gasto ${gastos.length}`);
-borrarGasto(1);
-console.log(`Después de borrar el gasto ${gastos.length}`);
+let gasto2 = new CrearGasto("Er gasto 2", 120356.99, "2024-01-02","uuufffff");
+let gasto3 = new CrearGasto("Er gasto 3", 120356.99, "2024-01-02","ahhhhh");
+let gasto4 = new CrearGasto("Er gasto 4", 120356.99, "2024-01-02","eeeeee");
+anyadirGasto(gasto2);
+anyadirGasto(gasto3);
+anyadirGasto(gasto4);
+console.log(`Longitud después de añadir los gastos: ${gastos.length}`);
+console.log(`idGasto después de añadir el último gasto ${idGasto}`);
 
+for (let i = 0; i < gastos.length; i++){
+    console.log(`-gasto${i}.id = ${gastos[i].id}`);
+}
+borrarGasto(0);
+
+
+console.log(`Longitud después de borrar un gasto: ${gastos.length}`);
+console.log(`idGasto después de borrar un gasto ${idGasto}`);
+for (let www of gastos)
+    {
+        console.log(www);
+    }
+borrarGasto(1)
+borrarGasto(2)
+borrarGasto(3);
+//console.log(gastos);
+*/
 
 
 
@@ -129,16 +146,19 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             gastos.push(gasto);
         }
 
-        function borrarGasto(id){
-             let elementoAborrar = indice => indice == id;
-             console.log(elementoAborrar)
-             let resultado = gastos.find(elementoAborrar)
-             console.log(resultado)
-             if (elementoAborrar){
-                gastos.splice(resultado)
-                console.log(gastos);
-                //console.log("Borra uno");
-            } //else { console.log("No borra nada " + resultado)}
+        function borrarGasto(ide){
+             //if (ide <= ((gastos.length)+1))
+              //  {
+                    console.log("Entra en el if");
+                    let buscarGasto = gastos.findIndex(elemento => {
+                        //console.log("valor elemento cada vuelta:" + elemento.id);
+                        return elemento.id === ide
+                });
+                    //console.log(buscarGasto);
+                    gastos.splice(buscarGasto,1);
+                    console.log("Longitud después de borrar, vista desde dentro: " + gastos.length);
+              //  }
+             
         } 
 
         function calcularTotalGastos(){
