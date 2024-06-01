@@ -16,13 +16,25 @@ mostrarPresupuesto() */
 
 // Ej. 2 - Llamada a las funciones de la práctica: Fundamentos de JavaScript II
 /*
-let gasto1 = new CrearGasto("Ejemplo de gasto 1", 20.33, "2023-10-11","ordinario","extraordinario","comunidad","luz","agua");
+let gasto1 = new CrearGasto("Ejemplo de gasto 1", 20.33, "2021-10-06","ordinario","extraordinario","comunidad","luz","agua");
+
 let gasto2 = new CrearGasto("Ejemplo de gasto 1", 1000, "2023-10-11","ordinario","extraordinario","comunidad","luz","agua");
 gastos.push(gasto1);
 gastos.push(gasto2);
 //console.log(`La fecha del gasto en timestamp es: ${gasto1.fecha}`);
-*/
+
+//gasto1.mostrarGastoCompleto();
 calcularTotalGastos();
+let fecha1 = new Date();
+//let fecha2 = Date.now();
+let fecha2 = new Date(Date.now());
+
+console.log(fecha1.toLocaleString()); // 1/6/2024, 14:03:51
+console.log(fecha2.toLocaleString()); // 1.717.243.431.349
+fecha1 = Date.now();
+console.log(fecha1.toLocaleString());
+*/
+
 
 // FUNCIONES
 
@@ -99,7 +111,18 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
             // Método mostrarGastoCompleto
             this.mostrarGastoCompleto = function(){
-
+                //let fechaFormateada = new Date(Date.now());
+               // fecha = fechaFormateada.toLocaleDateString()
+                //fechaFormateada = this.fecha.toLocaleString();
+                let mensajeMostrar = `Gasto correspondiente a descripción del gasto con valor ${valor} €.\nFecha: ${new Date("2021-10-06T13:10Z").toLocaleString()}\nEtiquetas:\n`;
+                let cadenaEtiquetas = ""
+                for(let i=0;i<etiquetas.length;i++){
+                    cadenaEtiquetas += `- ${etiquetas[i]}\n`
+                }
+//Gasto correspondiente a descripción del gasto con valor 23.55 €.\nFecha: 6/10/2021, 15:10:00\nEtiquetas:- casa\n- supermercado\n- comida\n
+//Gasto correspondiente a descripción del gasto con valor 23.55 €.\nFecha: 6/10/2021, 15:10:00\nEtiquetas:\n- casa\n- supermercado\n- comida\n
+                console.log (mensajeMostrar + cadenaEtiquetas)
+                return mensajeMostrar + cadenaEtiquetas;
             }
 
             // Método actualizarFecha
