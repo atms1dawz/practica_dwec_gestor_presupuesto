@@ -15,46 +15,14 @@ let idGasto = 0; // Ej. 2 - Almacena el identificador actual de cada gasto. Inic
 mostrarPresupuesto() */
 
 // Ej. 2 - Llamada a las funciones de la práctica: Fundamentos de JavaScript II
-
+/*
 let gasto1 = new CrearGasto("Ejemplo de gasto 1", 20.33, "2023-10-11","ordinario","extraordinario","comunidad","luz","agua");
-console.log(`La fecha del gasto en timestamp es: ${gasto1.fecha}`);
-/*
-console.log(`Los gastos del ejercicio son:`);
-for (let gastosVariados of gasto1.etiquetas){
-    console.log(`-${gastosVariados}`);
-}
+let gasto2 = new CrearGasto("Ejemplo de gasto 1", 1000, "2023-10-11","ordinario","extraordinario","comunidad","luz","agua");
+gastos.push(gasto1);
+gastos.push(gasto2);
+//console.log(`La fecha del gasto en timestamp es: ${gasto1.fecha}`);
 */
-/*
-anyadirGasto(gasto1); 
-let gasto2 = new CrearGasto("Er gasto 2", 120356.99, "2024-01-02","uuufffff");
-let gasto3 = new CrearGasto("Er gasto 3", 120356.99, "2024-01-02","ahhhhh");
-let gasto4 = new CrearGasto("Er gasto 4", 120356.99, "2024-01-02","eeeeee");
-anyadirGasto(gasto2);
-anyadirGasto(gasto3);
-anyadirGasto(gasto4);
-console.log(`Longitud después de añadir los gastos: ${gastos.length}`);
-console.log(`idGasto después de añadir el último gasto ${idGasto}`);
-
-for (let i = 0; i < gastos.length; i++){
-    console.log(`-gasto${i}.id = ${gastos[i].id}`);
-}
-borrarGasto(0);
-
-
-console.log(`Longitud después de borrar un gasto: ${gastos.length}`);
-console.log(`idGasto después de borrar un gasto ${idGasto}`);
-for (let www of gastos)
-    {
-        console.log(www);
-    }
-borrarGasto(1)
-borrarGasto(2)
-borrarGasto(3);
-//console.log(gastos);
-*/
-
-
-
+calcularTotalGastos();
 
 // FUNCIONES
 
@@ -127,7 +95,28 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
                 }
               }     
               
-            // Ej. 2 - Métodos creados en el Ejercicio 2º
+            // Ej. 2 - Métodos del objeto creados en el Ejercicio 2º
+
+            // Método mostrarGastoCompleto
+            this.mostrarGastoCompleto = function(){
+
+            }
+
+            // Método actualizarFecha
+            this.actualizarFecha = function(){
+                
+            }
+            
+            // Método anyadirEtiquetas
+            this.anyadirEtiquetas = function(){
+                
+            }
+            
+            // Método borrarEtiquetas
+            this.borrarEtiquetas = function(){
+                
+            }
+
             // Ej. 2 - Crear función de 1 parámetro que realizará tres tareas:
             //Añadir al objeto gasto pasado como parámetro una propiedad id cuyo valor será el valor actual de la variable global idGasto.
             //Incrementar el valor de la variable global idGasto.
@@ -162,11 +151,18 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         } 
 
         function calcularTotalGastos(){
+            // Función sin parámetros que devuelva la suma de todos los gastos creados en la variable global gastos. 
+            let sumaTotal = 0;
+            for (let elemArray of gastos){
+                sumaTotal += elemArray["valor"]
+            }
+            console.log("Suma Total: " + sumaTotal);
+            return sumaTotal;
 
         }
 
         function calcularBalance(){
-
+            return presupuesto - calcularTotalGastos();
         }
 
 
